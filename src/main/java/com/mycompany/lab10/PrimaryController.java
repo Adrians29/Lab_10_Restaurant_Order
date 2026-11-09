@@ -1,6 +1,8 @@
 package com.mycompany.lab10;
 
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -39,7 +41,7 @@ public class PrimaryController {
     private Label lbCurrentOrder;
 
     @FXML
-    private ListView<?> listViewEntree;
+    private ListView<String> listViewEntree;
 
     @FXML
     private MenuItem mIAbout;
@@ -79,5 +81,39 @@ public class PrimaryController {
 
     @FXML
     private TextField tfSpecialRequest;
+
+    private Order modelOrder = new Order();
+    
+    @FXML
+    public void inialize() {
+        listViewEntree.setItems(FXCollections.observableArrayList(Order.ENTREE_PRICES.keySet()));
+        
+        listViewEntree.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
+            modelOrder.setSelectedEntree(newVal);
+            updateTotalDisplay();
+        });
+        
+        drinksToggle.selectedToggleProperty().addListener((obs, oldVal, newVal) -> {
+            if (newVal != null) {
+                RadioButton selectedRadio = (RadioButton) newVal;
+                modelOrder.setSelectedDrink(selectedRadio.getText());
+            } else {
+                modelOrder.setSelectedDrink(null);
+            }
+        });
+        private void updateTotalDisplay(){
+            lbCurrentOrder.setText(String.format("Total:        $%.2f", modelOrder.getTotalPrice()));
+        }
+        
+        private void handlePlaceOrder() {
+            if(tfSpecialRequest != null){
+                modelOrder.setSpecialRequests(tfSpecialRequest.getText().trim());
+            }
+            
+            if (modelOrder) {
+                
+            }
+        }
+    }
 
 }
