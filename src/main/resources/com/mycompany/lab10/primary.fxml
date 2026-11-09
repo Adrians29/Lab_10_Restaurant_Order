@@ -22,12 +22,16 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem mnemonicParsing="false" text="Place Order" />
+                  <MenuItem mnemonicParsing="false" text="Clear Order" />
+                  <MenuItem mnemonicParsing="false" text="Exit" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
+              <MenuItem mnemonicParsing="false" text="Entree Clear" />
+                  <MenuItem mnemonicParsing="false" text="Drink Clear" />
+                  <MenuItem mnemonicParsing="false" text="Special Request Clear" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
@@ -43,10 +47,10 @@
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <VBox prefHeight="200.0" prefWidth="200.0">
+                  <VBox prefHeight="200.0" prefWidth="200.0" style="-fx-border-radius: 5;">
                      <children>
                         <Label maxWidth="1.7976931348623157E308" style="-fx-background-color: lightgray;" text="Entree Selection" />
-                        <ListView prefHeight="200.0" prefWidth="200.0">
+                        <ListView prefHeight="106.0" prefWidth="200.0">
                            <VBox.margin>
                               <Insets />
                            </VBox.margin>
@@ -59,7 +63,7 @@
                   <VBox prefHeight="200.0" prefWidth="300.0">
                      <children>
                         <Label alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="299.0" style="-fx-background-color: lightgray;" text="Drink Selection" textOverrun="CLIP" />
-                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: white;">
+                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: white; -fx-border-color: lightgray;">
                            <children>
                               <RadioButton mnemonicParsing="false" text="Coffee">
                                  <toggleGroup>
@@ -104,7 +108,7 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
             </CheckBox>
-            <VBox prefWidth="600.0" style="-fx-background-color: lightgray;">
+            <VBox prefWidth="600.0" style="-fx-background-color: white; -fx-border-color: lightgray; -fx-border-radius: 5;">
                <children>
                   <Label text="Special Requests" />
                   <TextField promptText="e.g. Hold the onion" />
@@ -116,12 +120,12 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
             </VBox>
-            <HBox prefHeight="72.0" prefWidth="580.0" style="-fx-border-color: light gray;">
+            <HBox prefHeight="86.0" prefWidth="580.0" style="-fx-border-color: lightgray; -fx-border-radius: 5;">
                <children>
-                  <Label text="Current Order:&#10;Total: $0.00&#10;" />
+                  <Label prefHeight="61.0" prefWidth="156.0" style="-fx-font-weight: bold; -fx-font-size: 18;" text="Current Order:&#10;Total: $0.00&#10;" />
                   <Button mnemonicParsing="false" text="Place Order">
                      <HBox.margin>
-                        <Insets left="300.0" right="10.0" />
+                        <Insets left="200.0" right="10.0" />
                      </HBox.margin>
                   </Button>
                   <Button mnemonicParsing="false" text="Clear Order">
