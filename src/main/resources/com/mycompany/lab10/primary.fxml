@@ -18,25 +18,25 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
    <top>
-      <MenuBar BorderPane.alignment="CENTER">
+      <MenuBar fx:id="menuBar" BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" text="File">
+          <Menu fx:id="file" mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Place Order" />
-                  <MenuItem mnemonicParsing="false" text="Clear Order" />
-                  <MenuItem mnemonicParsing="false" text="Exit" />
+              <MenuItem fx:id="mIPlaceOrder" mnemonicParsing="false" text="Place Order" />
+                  <MenuItem fx:id="mIClearOrder" mnemonicParsing="false" text="Clear Order" />
+                  <MenuItem fx:id="mIExit" mnemonicParsing="false" text="Exit" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
+          <Menu fx:id="edit" mnemonicParsing="false" text="Edit">
             <items>
-              <MenuItem mnemonicParsing="false" text="Entree Clear" />
-                  <MenuItem mnemonicParsing="false" text="Drink Clear" />
-                  <MenuItem mnemonicParsing="false" text="Special Request Clear" />
+              <MenuItem fx:id="mIEntreeC" mnemonicParsing="false" text="Entree Clear" />
+                  <MenuItem fx:id="mIDrinkC" mnemonicParsing="false" text="Drink Clear" />
+                  <MenuItem fx:id="mISRC" mnemonicParsing="false" text="Special Request Clear" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Help">
+          <Menu fx:id="help" mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem fx:id="mIAbout" mnemonicParsing="false" text="About" />
             </items>
           </Menu>
         </menus>
@@ -50,7 +50,7 @@
                   <VBox prefHeight="200.0" prefWidth="200.0" style="-fx-border-radius: 5;">
                      <children>
                         <Label maxWidth="1.7976931348623157E308" style="-fx-background-color: lightgray;" text="Entree Selection" />
-                        <ListView prefHeight="106.0" prefWidth="200.0">
+                        <ListView fx:id="listViewEntree" prefHeight="106.0" prefWidth="200.0">
                            <VBox.margin>
                               <Insets />
                            </VBox.margin>
@@ -65,7 +65,7 @@
                         <Label alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="299.0" style="-fx-background-color: lightgray;" text="Drink Selection" textOverrun="CLIP" />
                         <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: white; -fx-border-color: lightgray;">
                            <children>
-                              <RadioButton mnemonicParsing="false" text="Coffee">
+                              <RadioButton fx:id="rCoffee" mnemonicParsing="false" text="Coffee">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="drinksToggle" />
                                  </toggleGroup>
@@ -73,17 +73,17 @@
                                     <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                  </VBox.margin>
                               </RadioButton>
-                              <RadioButton mnemonicParsing="false" text="Tea" toggleGroup="$drinksToggle">
+                              <RadioButton fx:id="rTea" mnemonicParsing="false" text="Tea" toggleGroup="$drinksToggle">
                                  <VBox.margin>
                                     <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                  </VBox.margin>
                               </RadioButton>
-                              <RadioButton mnemonicParsing="false" text="Soda" toggleGroup="$drinksToggle">
+                              <RadioButton fx:id="rSoda" mnemonicParsing="false" text="Soda" toggleGroup="$drinksToggle">
                                  <VBox.margin>
                                     <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                  </VBox.margin>
                               </RadioButton>
-                              <RadioButton mnemonicParsing="false" text="Juice" toggleGroup="$drinksToggle">
+                              <RadioButton fx:id="rJuice" mnemonicParsing="false" text="Juice" toggleGroup="$drinksToggle">
                                  <VBox.margin>
                                     <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                  </VBox.margin>
@@ -103,7 +103,7 @@
                   </VBox>
                </children>
             </HBox>
-            <CheckBox mnemonicParsing="false" text="Request Free Water">
+            <CheckBox fx:id="cbRequestWater" mnemonicParsing="false" text="Request Free Water">
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
@@ -111,7 +111,7 @@
             <VBox prefWidth="600.0" style="-fx-background-color: white; -fx-border-color: lightgray; -fx-border-radius: 5;">
                <children>
                   <Label text="Special Requests" />
-                  <TextField promptText="e.g. Hold the onion" />
+                  <TextField fx:id="tfSpecialRequest" promptText="e.g. Hold the onion" />
                </children>
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -122,13 +122,13 @@
             </VBox>
             <HBox prefHeight="86.0" prefWidth="580.0" style="-fx-border-color: lightgray; -fx-border-radius: 5;">
                <children>
-                  <Label prefHeight="61.0" prefWidth="156.0" style="-fx-font-weight: bold; -fx-font-size: 18;" text="Current Order:&#10;Total: $0.00&#10;" />
-                  <Button mnemonicParsing="false" text="Place Order">
+                  <Label fx:id="lbCurrentOrder" prefHeight="61.0" prefWidth="156.0" style="-fx-font-weight: bold; -fx-font-size: 18;" text="Current Order:&#10;Total: $0.00&#10;" />
+                  <Button fx:id="bPlaceOrder" mnemonicParsing="false" text="Place Order">
                      <HBox.margin>
                         <Insets left="200.0" right="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" text="Clear Order">
+                  <Button fx:id="bClearOrder" mnemonicParsing="false" text="Clear Order">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
